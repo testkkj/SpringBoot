@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BoardApplication",
+            "request": "launch",
+            "mainClass": "com.example.board.BoardApplication",
+            "projectName": "board"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SampleApplication<Sample>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.Sample.SampleApplication",
+            "projectName": "Sample",
+            "args": ""
+        }
+    ]
+}
