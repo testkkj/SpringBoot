@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
  * BoardMapper
  */
 @Mapper
-public class BoardMapper {
+public interface BoardMapper {
 
     List<BoardDto> selectBoardList() throws Exception;
 }

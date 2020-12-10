@@ -3,6 +3,7 @@ package com.example.board.board.controller;
 import java.util.List;
 
 import com.example.board.board.dto.BoardDto;
+import com.example.board.board.service.BoardService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
