@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.tymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>board</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../../static/css/style.css">
+    </link>
+</head>
+
+<body>
+    <div class="container">
+        <h2>게시판 상세 화면</h2>
+        <form id="frm" name="frm" method="POST" action="/board/insertBoard.do">
+            <table class="board_detail">
+                <tbody>
+                    <tr>
+                        <th scope="row">글 번호</th>
+                        <td th:text="${board.boardIdx}"></td>
+                        <th scope="row">조회수</th>
+                        <td th:text="${board.hitCnt}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">작성자</th>
+                        <td th:text="${board.creatorId}"></td>
+                        <th scope="row">작성일</th>
+                        <td th:text="${board.createdDatetime}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">제목</th>
+                        <td colspan="3">
+                            <input type="text" name="title" id="title" th:value="${board.title}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="view_text">
+                            <textarea name="contents" id="contents" cols="30" rows="10" th:text="${board.contents}"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" id="submit" value="저장" class="btn">
+        </form>
+    </div>
+</body>
+
+</html>

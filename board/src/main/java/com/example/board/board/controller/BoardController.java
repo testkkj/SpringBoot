@@ -8,6 +8,7 @@ import com.example.board.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -25,6 +26,16 @@ public class BoardController {
 
         List<BoardDto> list = boardService.selectBoardList();
         modelAndView.addObject("list", list);
+
+        return modelAndView;
+    }
+
+    @RequestMapping("/board/openBoardDetail.do")
+    public ModelAndView openBoardDetail(@RequestParam int boardIdx) throws Exception {
+        ModelAndView modelAndView = new ModelAndView("/board/boardDetail");
+
+        BoardDto boardDto = boardService.selectBoardDetail(boardIdx);
+        modelAndView.addObject("board", boardDto);
 
         return modelAndView;
     }
