@@ -10,4 +10,6 @@ import com.example.board.board.dto.BoardDto;
 public interface BoardService {
 
     List<BoardDto> selectBoardList() throws Exception;
+
+    void insertBoard(BoardDto boardDto) throws Exception;
 }
