@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BoardController {
 
+    public static final String REDIRECTION = "redirect:/board/openBoardList.do";
+
     @Autowired
     private BoardService boardService;
 
@@ -48,6 +50,18 @@ public class BoardController {
     @RequestMapping("/board/insertBoard.do")
     public String insertBoard(BoardDto boardDto) throws Exception {
         boardService.insertBoard(boardDto);
-        return "redirect:/board/openBoardList.do";
+        return REDIRECTION;
+    }
+
+    @RequestMapping("/board/updateBoard.do")
+    public String updateBoard(BoardDto boardDto) throws Exception {
+        boardService.updateBoard(boardDto);
+        return REDIRECTION;
+    }
+
+    @RequestMapping("/board/deleteBoard.do")
+    public String deleteBoard(int boardIdx) throws Exception {
+        boardService.deleteBoard(boardIdx);
+        return REDIRECTION;
     }
 }

@@ -35,4 +35,14 @@ public class BoardServiceImpl implements BoardService {
 
         return boardDto;
     }
+
+    @Override
+    public void updateBoard(BoardDto boardDto) throws Exception {
+        boardMapper.updateBoard(boardDto);
+    }
+
+    @Override
+    public void deleteBoard(int boardIdx) throws Exception {
+        boardMapper.deleteBoard(boardIdx);
+    }
 }
