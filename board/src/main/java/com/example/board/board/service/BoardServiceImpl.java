@@ -45,28 +45,30 @@ public class BoardServiceImpl implements BoardService {
         }
         // 활성화하면 업로드된 파일 정보가 로그에 출력됨
         // if (ObjectUtils.isEmpty(multipartHttpServletRequest) == false) {
-        //     Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-        //     String name;
-        //     while (iterator.hasNext()) {
-        //         name = iterator.next();
-        //         log.debug("file tag name : "+name);
-        //         List<MultipartFile> list = multipartHttpServletRequest.getFiles(name);
-        //         for (MultipartFile multipartFile : list) {
-        //             log.debug("start file information");
-        //             log.debug("file name : "+multipartFile.getOriginalFilename());
-        //             log.debug("file size : "+multipartFile.getSize());
-        //             log.debug("file content type : "+multipartFile.getContentType());
-        //             log.debug("end file information.\n");
-        //         }
-        //     }
+        // Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+        // String name;
+        // while (iterator.hasNext()) {
+        // name = iterator.next();
+        // log.debug("file tag name : "+name);
+        // List<MultipartFile> list = multipartHttpServletRequest.getFiles(name);
+        // for (MultipartFile multipartFile : list) {
+        // log.debug("start file information");
+        // log.debug("file name : "+multipartFile.getOriginalFilename());
+        // log.debug("file size : "+multipartFile.getSize());
+        // log.debug("file content type : "+multipartFile.getContentType());
+        // log.debug("end file information.\n");
+        // }
+        // }
         // }
     }
 
     @Override
     public BoardDto selectBoardDetail(int boardIdx) throws Exception {
-        boardMapper.updateHitCount(boardIdx);
-
         BoardDto boardDto = boardMapper.selectBoardDetail(boardIdx);
+        List<BoardFileDto> fileList = boardMapper.selectBoardFileList(boardIdx);
+        boardDto.setFileList(fileList);
+
+        boardMapper.updateHitCount(boardIdx);
 
         return boardDto;
     }
