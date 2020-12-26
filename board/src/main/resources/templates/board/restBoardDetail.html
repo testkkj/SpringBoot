@@ -56,8 +56,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
+
+                var boardIdx = $("#boardIdx").val();
+
                 $("#list").on("click", function () {
-                    location.href = "openBoardList.do";
+                    location.href = "/board/";
                 });
 
                 $("#edit").on("click", function () {
@@ -70,7 +73,8 @@
                 $("#delete").on("click", function () {
                     $("#method").val("delete");
                     var frm = $("#frm")[0];
-                    frm.action = "/board/"+boardIdx;
+                    frm.action = "/boarddelete/"+boardIdx;
+                    //원본 : frm.action = "/board/"+boardIdx;
                     frm.submit();
                 });
             });

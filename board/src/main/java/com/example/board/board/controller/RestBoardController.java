@@ -14,6 +14,7 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -65,13 +66,15 @@ public class RestBoardController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/board/{boardIdx}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/board/{boardIdx}", method = RequestMethod.POST)
+    //원본 " @RequestMapping(value = "/board/{boardIdx}", method = RequestMethod.PUT)
     public String updateBoard(BoardDto boardDto) throws Exception {
         boardService.updateBoard(boardDto);
         return REDIRECTION;
     }
 
-    @RequestMapping(value = "/board/{boardIdx}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/boarddelete/{boardIdx}", method = RequestMethod.POST)
+    //원본 : @RequestMapping(value = "/board/{boardIdx}", method = RequestMethod.DELETE)
     public String deleteBoard(@PathVariable("boardIdx") int boardIdx) throws Exception {
         boardService.deleteBoard(boardIdx);
         return REDIRECTION;
