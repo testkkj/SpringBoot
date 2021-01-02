@@ -1,40 +1,38 @@
 package com.example.board.board.entity;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * BoardEntity
+ * BoardFileEntity
  */
 @Entity
-@Table(name = "t_jpa_board")
+@Table(name = "t_jap_file")
 @NoArgsConstructor
 @Data
-public class BoardEntity {
+public class BoardFileEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int boardIdx;
+    private int idx;
 
     @Column(nullable = false)
-    private String title;
+    private String originalFileName;
 
     @Column(nullable = false)
-    private int hitCnt = 0;
+    private String storedFilePath;
+
+    @Column(nullable = false)
+    private long fileSize;
 
     @Column(nullable = false)
     private String creatorId;
@@ -42,12 +40,8 @@ public class BoardEntity {
     @Column(nullable = false)
     private LocalDateTime createdDatetime = LocalDateTime.now();
 
-    private String updaterId;
+    private String updatorId;
 
-    private LocalDateTime updateDatetime;
+    private LocalDateTime updatedDatetime;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "board_idx")
-    private Collection<BoardFileEntity> fileList;
-        
 }
