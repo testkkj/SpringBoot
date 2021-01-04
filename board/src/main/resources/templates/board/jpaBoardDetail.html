@@ -46,7 +46,7 @@
         </form>
 
         <div class="file_list">
-            <a th:each="list : ${board.fileList}" th:href="@{/jpa/board/file(idx=${list.idx}, boardIdx=${board.boardIdx})}" th:text="|${list.originalFileName}(${#numbers.formatInteger(list.fileSize/1000,1, 'DEFAULT')} kb)|"></a>
+            <a th:each="list : ${board.fileList}" th:href="@{/board/file(idx=${list.idx}, boardIdx=${list.boardIdx})}" th:text="|${list.originalFileName}(${list.fileSize} kb)|"></a>
         </div>
 
         <input type="button" id="list" value="목록으로">
@@ -60,20 +60,20 @@
                 var boardIdx = $("#boardIdx").val();
 
                 $("#list").on("click", function () {
-                    location.href = "/jpa/board/";
+                    location.href = "/board/";
                 });
 
                 $("#edit").on("click", function () {
                     $("#method").val("put");
                     var frm = $("#frm")[0];
-                    frm.action = "/jpa/board/"+boardIdx;
+                    frm.action = "/board/"+boardIdx;
                     frm.submit();
                 });
 
                 $("#delete").on("click", function () {
                     $("#method").val("delete");
                     var frm = $("#frm")[0];
-                    frm.action = "/jpa/boarddelete/"+boardIdx;
+                    frm.action = "/boarddelete/"+boardIdx;
                     //원본 : frm.action = "/board/"+boardIdx;
                     frm.submit();
                 });

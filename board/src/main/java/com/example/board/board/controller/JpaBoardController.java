@@ -11,6 +11,7 @@ import com.example.board.board.dto.BoardFileDto;
 import com.example.board.board.entity.BoardEntity;
 import com.example.board.board.entity.BoardFileEntity;
 import com.example.board.board.service.BoardService;
+import com.example.board.board.service.JpaBoardService;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,16 +71,18 @@ public class JpaBoardController {
     }
 
     @RequestMapping(value = "/jpa/board/{boardIdx}", method = RequestMethod.POST)
-    //원본 " @RequestMapping(value = "/jpa/board/{boardIdx}", method = RequestMethod.PUT)
+    // 원본 " @RequestMapping(value = "/jpa/board/{boardIdx}", method =
+    // RequestMethod.PUT)
     public String updateBoard(BoardEntity boardEntity) throws Exception {
-        japBoardService.saveBoard(boardEntity, null);
+        jpaBoardService.saveBoard(boardEntity, null);
         return REDIRECTION;
     }
 
     @RequestMapping(value = "/jpa/boarddelete/{boardIdx}", method = RequestMethod.POST)
-    //원본 : @RequestMapping(value = "/board/{boardIdx}", method = RequestMethod.DELETE)
+    // 원본 : @RequestMapping(value = "/board/{boardIdx}", method =
+    // RequestMethod.DELETE)
     public String deleteBoard(@PathVariable("boardIdx") int boardIdx) throws Exception {
-        japBoardService.deleteBoard(boardIdx);
+        jpaBoardService.deleteBoard(boardIdx);
         return REDIRECTION;
     }
 
