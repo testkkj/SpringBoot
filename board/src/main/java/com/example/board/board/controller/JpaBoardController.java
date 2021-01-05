@@ -6,11 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.board.board.dto.BoardDto;
-import com.example.board.board.dto.BoardFileDto;
 import com.example.board.board.entity.BoardEntity;
 import com.example.board.board.entity.BoardFileEntity;
-import com.example.board.board.service.BoardService;
 import com.example.board.board.service.JpaBoardService;
 
 import org.apache.commons.io.FileUtils;

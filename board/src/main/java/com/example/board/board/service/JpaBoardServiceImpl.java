@@ -9,6 +9,7 @@ import com.example.board.board.dto.BoardFileDto;
 import com.example.board.board.entity.BoardEntity;
 import com.example.board.board.entity.BoardFileEntity;
 import com.example.board.board.mapper.BoardMapper;
+import com.example.board.board.repository.JpaBoardRepository;
 import com.example.board.common.FileUtils;
 
 import org.slf4j.Logger;
