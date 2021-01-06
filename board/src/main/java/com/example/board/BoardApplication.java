@@ -8,7 +8,7 @@ import org.springframework.data.convert.Jsr310Converters;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
-@EntityScan(basePackageClasses = {Jsr310Converters.class}, basePackages = {"board"})
+@EntityScan(basePackageClasses = {Jsr310Converters.class}, basePackages = {"com.example.board"})
 @SpringBootApplication(exclude = {MultipartAutoConfiguration.class})
 public class BoardApplication {
 
